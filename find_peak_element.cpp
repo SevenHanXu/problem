@@ -16,6 +16,9 @@ int findPeakElement(int* nums, int numsSize) {
     }
     return head == tail ? head : -1;
 }
+/*当num[mid] > num[mid + 1]的时候，说明峰值在左侧，num[mid]有可能是峰值，tail = mid
+ *当num[mid] < num[mid + 1]的时候，说明峰值在右侧，而num[mid]不可能是峰值。head = mid；
+* */
 int main(){
     return 0;
 }
