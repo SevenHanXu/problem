@@ -25,7 +25,20 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     if(len % 2) return findKthnumber(nums1, nums1Size, nums2, nums2Size, (len + 1) / 2);
     else return (findKthnumber(nums1, nums1Size, nums2, nums2Size, len / 2) + findKthnumber(nums1, nums1Size, nums2, nums2Size, len / 2 + 1)) / 2.0;
 }
-
+/*找两个有序数组的中位数，可以转化成找两个数组的第k大个数
+* 由于两个数组不一定一样大，将nums1总设置成个数比较少的数组
+* 在两个数组分别找nums[k / 2]的数进行比较大小
+* (1)当nums1.size() < k / 2时，就将mid1的指针指向nums1的最后一位，mid2的指针指向nums2的第k - mid1位
+* (2)如果nums1[mid1] > nums2[mid2] 
+* nums1[2, 3, 4, 5]
+* nums2[0, 1, 2, 3, 4]
+* 那么nums2的左半部分一定比第k个元素小，一定不是第k个元素，将其舍去，递归查找第k - mid2个元素
+* (3)如果nums1[mid1] < nums2[mid2]
+* nums1[1, 2, 3, 4]
+* nums2[2, 3, 4, 5, 6]
+* 那么nums1的左半部分一定比第k个元素小，一定不是第k个元素，将其舍去，递归查找第k - mid1个元素
+* 当nums1[mid1] == nums[mid2]时，保证nums1[mid1] == nums[mid2]是第k个元素
+**/
 int main(){
     return 0;
 }
