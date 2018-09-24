@@ -38,3 +38,15 @@ int main(){
 
 
  * */
+
+ int missingNumber_2(int* nums, int numsSize) {
+    int ans = 0, sum = 0;
+    for(int i = 0; i <= numsSize; i++){
+        sum ^= i;
+    }
+    for(int i = 0; i < numsSize; i++){
+        ans ^= nums[i];
+    }
+    return ans ^= sum;
+}
+ /*0~n异或，结果与数组的每位异或值异或，因为相同的两个数异或为0，最后就找到结果*/
